@@ -1,0 +1,105 @@
+/* pages/user/user */
+
+page{
+  background: #f8f8f9;
+  font-size: 35rpx;
+  color: #495060;
+}
+
+/*分区域*/
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*头像区域*/
+.head-area{
+  height:400rpx;
+  width: 100%;
+  display: flex;
+}
+
+.head-image{
+  text-align: center;
+  line-height: 250rpx;
+  background: white;
+  height: 250rpx;
+  width: 250rpx;
+  margin: 75rpx auto;
+  border-radius: 50%;
+}
+
+.head-image-null{
+  text-align: center;
+  line-height: 250rpx;
+  background: white;
+  height: 250rpx;
+  width: 250rpx;
+  margin: 75rpx auto;
+  border-radius: 50%;
+}
+
+/*信息区域 包括过长信息不折行*/
+.item{
+  width: 90%;
+  font-size: 35rpx;
+  margin: 0 30rpx;
+  padding: 23rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #495060;
+}
+.level-info{
+  font-size: 30rpx;
+  color: #bbbec4;
+  position: absolute;
+  right: 40rpx;
+}
+
+/*消费记录*/
+.record{
+  text-align: center;
+  margin-bottom: 20rpx;
+  text-decoration: underline;
+}
+
+/*按钮区域*/
+.button-area{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+}
+
+/* 修改密码按钮 */
+.password-change{
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+/* 展示自己的id的按钮 */
+.user-id{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+
+.user-id image{
+  width: 25px;
+  height: 25px;
+}
+
+/*展示二维码区域*/
+.canvas-area{
+  position: relative;
+  width: 100%;
+}
+
+.canvas{
+  width: 300rpx;
+  height: 300rpx;
+  margin: auto;
+}

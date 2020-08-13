@@ -1,0 +1,45 @@
+<!--user-pages/user-records/user-records.wxml-->
+
+<view class="container">
+  <!--页顶显示-->
+  <view class="head">{{'—————>> 消费记录 <<—————'}}</view>
+  <!--记录上方的店铺名字和消费时间-->
+  <view class="bill-area" wx:for="{{userRecordes}}" wx:key="{{index}}">
+    <view class="title">
+      <text class="name">{{item['store-name']}}</text>
+      <text class="time">{{item.time}}</text>
+    </view>
+    <!--折叠栏，显示商品列表-->
+    <i-collapse name="{{name}}" >
+        <i-collapse-item title="购买的商品" name="name1" i-class-title="collapse-item-title">
+            <view class="goods-item" slot="content" wx:for="{{item.goods}}" wx:key="{{goods-index}}" wx:for-item="goodsItem">
+              <view>品名：{{goodsItem.name}}</view>
+              <view>类别：{{goodsItem.tag}}</view>
+              <block wx:if="{{goodsItem['points-use']}}">
+                <view>原价：<text class="discount-text">{{goodsItem['price-origin']}}</text></view>
+                <view>折扣价：{{goodsItem['price-discounted']}}</view>
+                <view>消耗积分：{{goodsItem['price-points']}}</view>
+              </block>
+              <block wx:else>
+                <view>价格：{{goodsItem['price-origin']}}</view>
+              </block>
+              <view>数量：{{goodsItem.num}}</view>
+              <view>使用积分后价格：{{goodsItem['price-after-use-points']}}</view>
+              <view>折扣后价格：{{goodsItem['price-after-discount']}}</view>
+            </view>
+        </i-collapse-item>
+    </i-collapse>
+    <!--尾部标签，显示积分和价格-->
+    <view class="tail">
+       <view>
+        <text class="point-decrease">积分－{{item['points-used']}}</text>
+        <text class="cost-origin">{{item['cost-origin']}}￥</text>
+      </view>
+      <view>        
+        <text class="point-add">积分＋{{item['points-get']}}</text>
+        <text class="cost">{{item.cost}}￥</text>
+      </view>   
+    </view>
+  </view>
+  <i-load-more loading="{{ false }}" />
+</view>

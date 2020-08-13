@@ -1,0 +1,52 @@
+<!--store-pages/recive-bill/recive-bill.wxml-->
+
+<block wx:if="{{bill == null}}">
+  <view class="empty">空空如也~</view>
+</block>
+<block wx:else>
+  <view class="title">{{bill['store-name']}}</view>
+    <view class="goods" wx:for="{{bill['goods']}}" wx:key="index">
+      <i-card title="{{item.name}}" thumb="data:image/png;base64,{{item.head}}" extra="x{{item.num}}">
+          <view slot="content">{{item.intro}}</view>
+          <!--是否有用积分-->
+          <view slot="footer">
+            <block wx:if="{{item['points-use']}}">
+              <view class="up">
+                <text class="points-up">积分消耗：{{item['price-points']}}</text>
+                <text class="cost-up">{{item['price-origin']}}￥</text>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="up">
+                <text class="points-up">积分消耗：无</text>
+                <text class="cost-up">{{item['price-origin']}}￥</text>
+              </view>
+            </block>
+            <view class="down">
+              <text class="points-down"></text>
+              <text class="cost-down">{{item['price-discounted']}}￥</text>
+            </view>
+          </view>
+      </i-card>
+    </view>
+  <!--底部信息-->
+  <view class="bottom-area">
+    <view class="left">
+      <view class="up">
+        <text class="points-up">积分－{{bill['points-used']}}</text>
+        <text class="cost-up">{{bill['cost-origin']}}￥</text>
+      </view>
+      <view class="down">
+        <text class="points-down">积分＋{{bill['points-get']}}</text>
+        <text class="cost-down">{{bill['cost']}}￥</text>
+      </view>
+    </view>
+    <!--确认按钮-->
+    <view class="right" bindtap="cofirmClick">确认</view>
+  </view>
+  <view class="seat"></view>
+  <i-modal title="是否确定交易" cancel-text="拒绝" visible="{{ modalVisible }}" bind:ok="handleClose" bind:cancel="handleClose"></i-modal>
+</block>
+
+
+<i-message id="message" />

@@ -1,0 +1,90 @@
+/* user-pages/user-records/user-records.wxss */
+
+page{
+  background: #f8f8f9;
+  color: #495060;
+  font-size: 35rpx;
+}
+
+/*页顶显示*/
+.head{
+  text-align: center;
+  margin-top: 40rpx;
+  color: #bbbec4;
+}
+
+/*每条信息*/
+.bill-area{
+  padding: 20rpx;
+  background: white;
+  width: auto;
+  margin: 50rpx 30rpx;
+  border-radius: 10rpx 40rpx 10rpx 10rpx;
+}
+
+/*表头*/
+.title{
+  position: relative;
+  width:  100%;
+  padding-bottom: 10rpx;
+}
+/*店铺名称*/
+.name{
+  font-size: 40rpx;
+  color: #1c2438;
+  position: relative;
+  left: 0;
+  font-weight:800;
+}
+/*消费时间*/
+.time{
+  position: absolute;
+  font-size: 20rpx;
+  right: 0;
+  bottom: 0;
+}
+
+/*商品列表*/
+.goods-item{
+  border-bottom: 1rpx solid #dddee1;
+  padding: 20rpx 0;
+}
+/*折叠栏上的字*/
+.collapse-item-title{
+  font-weight:100;
+  font-size: 35rpx;
+  color: black;
+}
+.discount-text{
+  text-decoration: line-through;
+}
+
+/*表尾*/
+.tail{
+  margin-top: 10rpx;
+  padding-top: 10rpx;
+  border-top: 1rpx solid #dddee1;
+  width: 100%;
+  position: relative;
+}
+/*第一行 右边 原价*/
+.cost-origin{
+  text-decoration: line-through;
+  position: absolute;
+  right: 0;
+}
+/*第二行 右边 折扣价*/
+.cost{
+  position: absolute;
+  right: 0;
+}
+/*第一行 左边 减少的积分*/
+.point-decrease{
+  position: relative;
+  left: 0;
+}
+/*第二行 左边 增加的积分*/
+.point-add{
+  position: relative;
+  left: 0;
+}

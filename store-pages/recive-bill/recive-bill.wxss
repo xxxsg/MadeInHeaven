@@ -1,0 +1,65 @@
+/* store-pages/recive-bill/recive-bill.wxss */
+page{
+  font-size: 35rpx;
+  color: #495060;
+  background-color:#f8f8f9;
+}
+
+/*空情况*/
+.empty{
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 1100rpx;
+}
+
+/*店铺名字*/
+.title{
+  margin-top: 40rpx;
+  font-size: 70rpx;
+  text-align: center;
+}
+
+/*商品卡片*/
+.goods{
+  margin: 40rpx 0;
+}
+
+/*底部区域*/
+.bottom-area{
+  height: 100rpx;
+  width: 100%;
+  background: #5cadff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+}
+
+/*左边显示金额*/
+.left{
+  height: 100%;
+  width: 70%;
+  background: #FFD700;
+}
+.cost-up{
+  text-decoration: line-through;
+  float: right;
+}
+.cost-down{
+  float: right;
+}
+
+/*右边确认按钮*/
+.right{
+  height: 100%;
+  width: 30%;
+  background: #EE3F4d;
+  text-align: center;
+  line-height: 100rpx;
+  color: white;
+}
+
+/*占位*/
+.seat{
+  height: 100rpx;
+  width: 100%;
+}

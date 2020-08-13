@@ -1,0 +1,70 @@
+<!--pages/myinfo/myinfo.wxml-->
+<view class="container">
+  <!--头像区域-->
+  <view class="head-area">
+    <block wx:if="{{userInfo != null}}">
+      <block wx:if="{{userInfo.head != null}}">
+        <image src="https://madeinheavon-repo-madeinheaven.app.secoder.net/image/{{userInfo.head}}" class="head-image" bindtap="changePassword"></image>
+      </block>
+      <block wx:else>
+        <view class="head-image" bindtap="changePassword">未设置</view>
+      </block>
+    </block>
+    <block wx:else>
+      <view class="head-image-null" bindtap="changePassword"> <text>未登录</text> </view>
+    </block>
+  </view>
+  <!--用户信息区域-->
+  <i-panel hide-top="true">
+    <view class="item">用户昵称：{{userInfo['name']}}</view>
+  </i-panel>
+  <i-panel hide-top="true">
+    <view class="item">个性签名：{{userInfo['intro']}}</view>
+  </i-panel>
+  <i-panel>
+    <!--点击等级可以查看升级规则-->
+    <view class="item" bindtap="levelClick">用户等级：{{userInfo['level']}} <text class="level-info">查看详情</text></view>
+  </i-panel>
+  <i-panel>
+    <view class="item">剩余积分：{{userInfo['points-remain']}}</view>
+  </i-panel>
+  <!--按钮区域-->
+  <view class="button-area">
+    <!--消费记录查询，点击查询消费记录-->
+    <view class='record' bindtap="recordClick"> 消费记录查询 </view>
+    <!--当现在有用户登录的时候为切换用户按钮，反之为登录按钮-->
+    <view wx:if="{{userIdNow != null}}">
+      <i-button bind:click="loginButtonClick" type="info" size="small">切换用户</i-button>
+    </view>
+    <view wx:else>
+      <i-button bind:click="loginButtonClick" type="primary" size="small">登录</i-button>
+    </view>
+    <!--退出登陆按钮-->
+    <i-button bind:click="exitButtonClick" type="warning" size="small">退出登陆</i-button>
+  </view>
+  <!--左上修改信息-->
+  <view class="password-change" bindtap="changeUserInfo"><i-icon type="editor" size="30" color="#495060"/></view>
+  <!--右上展示二维码-->
+  <view class="user-id" bindtap="showUserId"><image src="../../image/user_id.png"></image></view>
+</view>
+<!--展示弹窗-->
+<i-modal title="等级规则详情" visible="{{modalVisible}}" bind:ok="handleClose" show-cancel="{{!modalVisible}}">
+    <view>您的等级：{{userInfo['level']}}</view>
+    <view>您的累计积分：{{userInfo['points-all']}}</view>
+    <view>积分规则如下：</view>
+    <view wx:for="{{levelRule.param}}">
+      <view>{{item.rank}}级：累计{{item.scorestair}}积分，获得{{1+item.scorerate}}倍积分!</view>
+    </view>
+</i-modal>
+<!--显示用户二维码-->
+<i-action-sheet visible="{{ sheetVisible }}"  show-cancel bind:cancel="handleCancel" >
+    <view slot="header" style="padding: 16px">
+        <view class="canvas-area">
+          <canvas class="canvas" canvas-id='canvas' bindlongtap='save'></canvas>
+        </view>
+        <view style="color: #495060;font-size: 20px">ID:{{userIdNow}}</view>
+    </view>
+</i-action-sheet>
+
+<i-message id="message" />
+<i-toast id="toast" />

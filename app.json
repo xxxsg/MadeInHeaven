@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "store-pages/index/index",
+    "store-pages/recive-bill/recive-bill",
+    "store-pages/store-info/store-info",
+    "user-pages/login/login",
+    "user-pages/user/user",
+    "user-pages/register/register",
+    "user-pages/change-password/change-password",
+    "user-pages/change-user-info/change-user-info",
+    "user-pages/user-records/user-records"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5cadff",
+    "navigationBarTitleText": "RJ融聚邻里",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "store-pages/index/index",
+        "text": "首页",
+        "iconPath": "./image/tabBar_icon_home.png",
+        "selectedIconPath": "./image/tabBar_icon_home_selected.png"
+      },
+      {
+        "pagePath": "user-pages/user/user",
+        "text": "我的",
+        "iconPath": "./image/tabBar_icon_user.png",
+        "selectedIconPath": "./image/tabBar_icon_user_selected.png"
+      },
+      {
+        "pagePath": "store-pages/recive-bill/recive-bill",
+        "text": "账单",
+        "iconPath": "./image/tabBar_icon_bill.png",
+        "selectedIconPath": "./image/tabBar_icon_bill_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

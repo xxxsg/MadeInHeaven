@@ -1,0 +1,84 @@
+/* pages/login/login.wxss */
+
+/*页面初始化，让底下内容水平居中*/
+page{
+  background: #f8f8f9;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 35rpx;
+}
+
+/*在距离顶部一定距离达到整个手机的中间*/
+.container {
+  position: relative;
+  top:20%;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+
+
+/*融聚邻里的logo*/
+.login-image{
+  /*background: white;*/
+  width: 400rpx;
+  height: 120rpx;  
+}
+
+/*两个区域的设置*/
+.input-area{
+  margin-top: 35rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+/*登陆的两个框*/
+.login-item{
+  margin: 0 auto;
+  position: relative;
+  width: 85%;
+  background: white;
+  flex-grow:1;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  border-bottom:1rpx solid #f8f8f9 
+}
+
+/*输入框上信息*/
+.login-item-info{
+  margin-left: 40rpx;
+  width: 20%;
+  color: #1c2438;
+  position: relative;
+  right: 0;
+}
+
+/*密码输入框*/
+.login-password{
+
+}
+
+.login-password text{
+  height: 100%;
+  color: #1c2438;
+}
+
+/*登陆按钮*/
+.login-button-area{
+  width: 100%;
+}
+
+/*注册*/
+.register{
+  text-decoration: underline;
+}
+

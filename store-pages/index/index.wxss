@@ -1,0 +1,146 @@
+/**index.wxss**/
+
+/*页面整体信息*/
+page{
+  background-color: #f8f8f9;
+  height:100%;
+}
+
+/*包含页面内所有元素*/
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+/*推荐图片*/
+.recommend-swiper{
+  margin-top: 20rpx;
+  height: 420rpx;
+  width: 750rpx;
+}
+.recommend-swiper swiper-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recommend-swiper image.unactive{
+  width: 100%;
+  height: 380rpx;
+  transition: all 0.2s linear;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+}
+.carousel image.active{
+  height: 420rpx;
+  transition: all 0.2s linear;
+}
+/* 下面的选中点 */
+.recommend-swiper .wx-swiper-dot{
+  display: inline-flex;
+  height: 10rpx;
+  margin-left: 20rpx;
+  justify-content: space-between;
+}
+.recommend-swiper .wx-swiper-dot{
+  width: 20rpx;
+}
+.recommend-swiper .wx-swiper-dot-active{
+  width: 40rpx;
+}
+.recommend-swiper .wx-swiper-dot::before{
+  content: '';
+  flex-grow: 1;
+  background: white;
+}
+.recommend-swiper .wx-swiper-dot-active::before{
+  width: 40rpx;
+  background: #2d8cf0;
+}
+
+/*logo*/
+.index-title{
+  background: #fff;
+  /*font-size: 80rpx;
+  height: 100%;
+  color: #2d8cf0;*/
+  margin-top: 30rpx; 
+  text-align: center;
+  /*letter-spacing: 60rpx;
+  text-shadow: 40rpx 0rpx 10rpx gainsboro;*/
+}
+.index-title image{
+  height: 120rpx;
+  width: 400rpx;
+}
+
+/*商家列表类目的包装 #e9eaec*/
+.store-item{
+  margin-top:20rpx; 
+  width: 750rpx;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-body{
+  width: 750rpx;
+  height: 100%;
+  border-bottom: 1rpx solid #e9eaec;
+  display: flex;
+}
+
+.item-image-area{
+  height: 100%;
+  width: 200rpx;
+}
+.item-image{
+  margin: 20rpx;
+  height: 200rpx;
+  width: 200rpx;
+  border: 1rpx solid #dddee1;
+}
+
+.item-content-area{
+  height: 100%;
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.item-content-title{
+  font-size: 70rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-bottom: 1rpx solid #e9eaec;
+  margin: 20rpx;
+  color: #1c2438;
+}
+.item-content-intro{
+  font-size: 36rpx;
+  /* 仅显示两行*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #495060;
+}
+
+.item-addr-area{
+  width: 750rpx;
+  height: 100%;
+  display: flex;
+}
+
+.addr{
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #80848f;
+  font-size: 35rpx;
+}

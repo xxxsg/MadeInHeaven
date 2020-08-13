@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view calss="container">
+  <!--商家顶部滚动推荐，现在是一个标题用于调试-->
+  <view class="recommend-area">
+    <swiper 
+      autoplay="true" 
+      circular="true" 
+      indicator-dots="true" 
+      previous-margin="30rpx"
+      next-margin="30rpx"
+      bindchange="changeSwiper"
+      class="recommend-swiper">
+      <block wx:for="{{recommendInfo}}" wx:key="index">
+        <swiper-item item-id="{{index}}">
+          <image src="https://madeinheavon-repo-madeinheaven.app.secoder.net/image/{{item.head}}" 
+          data-index="{{index}}" 
+          bindtap="recommendInfoClick" 
+          class="{{swiperIndex==index?'active':'unactive'}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--商家顶部滚动推荐，现在是一个标题用于调试-->
+  <view class="index-title" bindtap="rjll">
+    <image src="../../image/logo_blue.png"></image>
+  </view>
+  <!--商家列表-->
+  <view wx:for="{{storeInfo}}"  wx:key="index">
+    <view data-index="{{index}}" bindtap="storeClick" class="store-item">
+      <view class="item-body">
+        <view class="itme-image-area">
+          <image class="item-image" src="https://madeinheavon-repo-madeinheaven.app.secoder.net/image/{{item.head}}"></image>
+        </view>
+        <view class="item-content-area">
+          <view class="item-content-title">{{item.name}}</view>
+          <view class="item-content-intro">{{item.intro}}</view>
+        </view>
+      </view>
+      <view class="itme-addr">
+        <view class="addr"><i-icon type="coordinates" size="20" color="#80848f"/>{{item.addr}}</view>
+      </view>
+    </view>
+  </view>
+  <i-load-more tip="已经到底啦~" loading="{{ false }}" />
+</view>
+
+<i-message id="message" />

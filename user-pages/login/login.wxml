@@ -1,0 +1,38 @@
+<!--pages/login/login-->
+<view class="container">
+  <!--itme是两个区域，分别是图片和输入-->
+  <!--图片区域-->
+  <view class="item">
+      <image src="../../image/logo_black.png" class="login-image"/>
+  </view>
+  <!--输入框区域-->
+  <view class="input-area">
+    <view class="login-item">
+      <view class="login-item-info">用户名</view>
+      <view><input bindinput="loginNameInput"  placeholder="请输入用户名" /></view>
+    </view>
+    <view class="login-item">
+      <!--密码输入框设置为不可见-->
+      <view class="login-item-info">密码</view>
+      <view><input password="{{!passwordVisiable}}" bindinput="loginPasswordInput"  placeholder="请输入密码"/></view>
+      <view bindtap="passwordVisiableClick">
+        <block wx:if="{{passwordVisiable}}">
+          <i-icon type="browse_fill" size="25" />      
+        </block>
+        <block wx:else>
+          <i-icon type="browse" size="25" /> 
+        </block>
+      </view>
+    </view>
+    <!--登陆按钮，绑定请求-->
+  </view>
+  <view class="login-button-area">
+    <i-button bind:click="loginButtonClick" type="primary" size="small">登录</i-button>
+  </view>
+  <!--忘记密码和修改密码-->
+  <view class="register">
+      <text bindtap="registerClick"> 没有账号?点击注册 </text>
+  </view>
+</view>
+
+<i-message id="message" />

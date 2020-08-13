@@ -1,0 +1,29 @@
+<!--user-pages/change-user-info/change-user-info.wxml-->
+<view class="container">
+  <!--头像区域-->
+  <view class="header-area">
+    <view wx:if="{{head == 'https://madeinheavon-repo-madeinheaven.app.secoder.net/image/null' || head == 0 }}"> 
+      <i-icon type="add" size="100" color="#bbbec4" i-class="header" bindtap="headClick"/>
+    </view>
+    <view wx:else> 
+        <image src="{{head}}" class="head-image" bindtap="headClick"></image>
+    </view>
+  </view>
+  <!--输入框-->
+  <view class="input-area">
+    <view class="login-item">
+      <view class="login-item-info">用户昵称</view>
+      <view><input bindinput="nikeNameInput"  value="{{nikeName}}"/></view>
+    </view>
+    <view class="login-item">
+      <view class="login-item-info">个性签名</view>
+      <view><input bindinput="nikeIntroInput"  value="{{nikeIntro}}"/></view>
+    </view>
+  </view>
+  <!--提交按钮-->
+  <view class="button">  
+    <i-button bind:click="commitClick" type="primary">提交</i-button>
+  </view>
+</view>
+
+<i-message id="message" />

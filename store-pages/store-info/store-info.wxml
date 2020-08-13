@@ -1,0 +1,61 @@
+<!--pages/store-info/store-info.wxml-->
+<view class="container">
+  <!--店铺信息区域-->
+  <view class="store-info">
+    <!--店铺标题-->
+    <view class="store-name">{{storeInfo.name}}</view>
+    <!--店铺头像，现在是本地预览图，将来是storeInfo.head-->
+    <image src="https://madeinheavon-repo-madeinheaven.app.secoder.net/image/{{storeInfo.head}}" class="store-image" bindtap="debugClick"></image>
+    <!--店铺地址-->  
+    <view class="store-addr">
+      <i-icon type="coordinates" size="17" />{{storeInfo.addr}}
+    </view>
+    <view class="solid"></view>
+    <!--店铺简介-->
+    <view class="store-intro">店铺简介：{{storeInfo.intro}}</view>
+    <view class="solid"></view>
+    <!--优惠介绍-->
+    <view class="store-intro-discount">
+      <block wx:if="{{storeRule != null}}">
+        <view>店铺优惠：</view>
+        <block wx:for="{{storeRule}}" wx:key="index">
+          <view wx:if="{{item.type == 'linear discount rate'}}">
+            <view wx:for-item="i" wx:for="{{item.param}}" wx:key="idx" >全场<text>{{i.tag}}</text>品类享受<text>{{i.discount*10}}</text>折！</view>
+          </view>
+        </block>
+        <block wx:for="{{storeRule}}" wx:key="index">
+          <view wx:if="{{item.type == 'level subtract'}}">
+            <view wx:for-item="i" wx:for="{{item.param}}" wx:key="idx" >满<text>{{i.level}}</text>减<text>{{i.subtract}}</text></view>
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <view>暂无店铺优惠</view>
+      </block>
+    </view>
+  </view>
+
+  <!--商品list区域-->
+  <view class="goods-list-area">
+    <block wx:for="{{goodsList}}" wx:key="index">
+      <!--单个商品-->
+      <view class="goods">
+          <image class="goods-image" src="https://madeinheavon-repo-madeinheaven.app.secoder.net/image/{{item.head}}"></image>
+          <view class="goods-name">{{item.name}}</view>
+          <view class="goods-intro">简介:{{item.intro}}</view>
+          <view class="goods-intro">类别:{{item.tag}}</view>
+        <!--打折了情况-->
+        <block wx:if="{{item['price-discounted'] != item['price-origin']}}">
+          <view class="price-origin">价格:{{item['price-origin']}}</view>
+          <view class="price-discoun">现价:{{item['price-discounted']}}</view>
+          <view>消耗积分:{{item['price-points']}}</view>
+        </block>
+        <!--不打折了情况-->
+        <block wx:else>
+          <view class="price">价格:{{item['price-origin']}}</view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <i-load-more tip="已经到底啦~" loading="{{ false }}" />
+</view>

@@ -1,0 +1,67 @@
+/* user-pages/change-user-info/change-user-info.wxss */
+/*全局设置*/
+page{
+  background: #f8f8f9;
+  height: 100%;
+  width: 100%;
+  font-size: 35rpx;
+  position: relative;
+}
+
+/*头像区域*/
+.header-area{
+  height: 500rpx;
+  position: relative;
+}
+
+.header-area view{
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header{
+  border: 1rpx solid #bbbec4;
+  border-radius: 50%;
+}
+
+.head-image{
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+/*输入框格式*/
+.login-item{
+  margin: 0 auto;
+  position: relative;
+  width: 85%;
+  background: white;
+  flex-grow:1;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  border-bottom:1rpx solid #f8f8f9 
+}
+
+/*输入框上信息*/
+.login-item-info{
+  margin-left: 40rpx;
+  width: 25%;
+  color: #1c2438;
+  position: relative;
+  right: 0;
+}
+
+/*按钮位置*/
+.button{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
